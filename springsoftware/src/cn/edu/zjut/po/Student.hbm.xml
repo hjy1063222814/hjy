@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Student" table="software_student"
+catalog="software_javaee">
+
+<id name="stu_usernumber" type="string">
+<column name="software_stu_usernumber" />
+</id>
+
+<property name="user_username" type="string">
+<column name="software_user_username" length="12" />
+</property>
+
+<property name="stu_petname" type="string">
+<column name="software_stu_petname" length="20" />
+</property>
+
+<property name="stu_studentnumber" type="string">
+<column name="software_stu_studentnumber" length="20" />
+</property>
+
+<property name="stu_name" type="string">
+<column name="software_stu_name" length="20" />
+</property>
+
+<property name="stu_school" type="string">
+<column name="software_stu_school" length="30" />
+</property>
+
+<property name="stu_headphoto" type="string">
+<column name="software_stu_headphoto" length="30" />
+</property>
+
+<property name="stu_age" type="int">
+<column name="software_stu_age" />
+</property>
+
+<property name="stu_sex" type="string">
+<column name="software_stu_sex" length="20" />
+</property>
+
+<property name="stu_email" type="string">
+<column name="software_stu_email" length="20" />
+</property>
+
+<property name="stu_telephone" type="string">
+<column name="software_stu_telephone"  length="11"/>
+</property>
+
+<property name="stu_hobby" type="string">
+<column name="software_stu_hobby" length="20" />
+</property>
+
+</class>
+</hibernate-mapping>

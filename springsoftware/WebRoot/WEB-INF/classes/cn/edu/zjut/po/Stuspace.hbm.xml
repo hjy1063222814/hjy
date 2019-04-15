@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Stuspace" table="software_stuspace"
+catalog="software_javaee">
+
+
+ <composite-id name="spk" class="cn.edu.zjut.po.StuspacePK"> 
+ <key-property name="stu_usernumber" column="software_stu_usernumber"/> 
+ <key-property name="stuspace_time" column="software_stuspace_time"/> 
+ </composite-id>
+
+<property name="stuspace_txt" type="string">
+<column name="software_stuspace_txt" length="2000" />
+</property>
+
+<property name="stuspace_photo" type="string">
+<column name="software_stuspace_photo" length="20" />
+</property>
+
+<property name="stuspace_like" type="int">
+<column name="software_stuspace_like"  />
+</property>
+
+</class>
+</hibernate-mapping>

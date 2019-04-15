@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts
+Configuration 2.1//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="strutsBean" extends="struts-default" namespace="/">
+
+<interceptors>
+    <interceptor name="LoginInterceptor" class="cn.edu.zjut.interceptor.LoginInterceptor">
+    <param name="includeMethods">comment</param>
+    <param name="excludeMethods">add</param>
+    </interceptor>
+</interceptors>
+
+<action name="login" class="loginAction" method="login">
+	<result name="loginsuccess">/home.jsp</result>
+	<result name="studentmessage">/addStudent.jsp</result>
+	<result name="sellermessage">/addSeller.jsp</result>
+	<result name="loginfail">/login.jsp</result>
+</action>
+
+<action name="home" class="loginAction" method="home">        
+<result name="success">/home.jsp</result>
+</action>
+
+<action name="register" class="loginAction" method="register">
+	<result name="studentregister">/addStudent.jsp</result>
+	<result name="sellerregister">/addSeller.jsp</result>
+	<result name="registerfail">/register.jsp</result>
+</action>
+
+<action name="quit" class="loginAction" method="quit">
+	<result name="success">/home.jsp</result>
+</action>
+
+<action name="addStudent" class="studentAction" method="addStudent">
+	<result name="addstudentsuccess">/login.jsp</result>
+	<result name="addstudentfail">/addStudent.jsp</result>
+</action>
+
+<action name="adjustStudent" class="studentAction" method="adjustStudent">
+<result name="adjuststudentsuccess">/home.jsp</result>
+<result name="adjuststudentfail">/Showstudent.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">adjustStudent</param></interceptor-ref>
+</action>
+
+<action name="showStudent" class="studentAction" method="showStudent">
+<result name="success">/Showstudent.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">showStudent</param></interceptor-ref>
+</action>
+
+<action name="addSeller" class="sellerAction" method="addSeller">
+	<result name="addsellersuccess">/home.jsp</result>
+	<result name="addsellerfail">/addSeller.jsp</result>
+</action>
+
+<action name="findLike" class="likeAction" method="findLike">
+<result name="success">/mycomment.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">findLike</param></interceptor-ref>
+</action>
+
+<action name="findStuspace" class="findStuspaceAction" method="findStuspace">
+<result name="success">/mycomment.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">findStuspace</param></interceptor-ref>
+</action>
+
+<action name="addStuspace" class="addStuspaceAction" method="addStuspace">
+<result name="addstuspace">/addsuccess.jsp</result>
+<result name="failaddstuspace">/publish.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">addStuspace</param></interceptor-ref>
+</action>
+
+		<action name="search" class="searchAction">
+			<result name="success">/searchSellerList.jsp</result>
+			<result name="fail">/searchseller.jsp</result>
+		</action>
+
+<action name="item" class="sellerAction" method = "item">
+<result name="success">/itemList.jsp</result> 
+</action>
+<action name="add" class="sellerAction" method = "add">
+<result name="success">/itemList.jsp</result> 
+</action>
+<action name="comment" class="sellerAction" method = "comment">
+	<result name="ok">/addcomment.jsp</result>
+	<result name="loginfail">/login.jsp</result>
+    <interceptor-ref name="defaultStack"></interceptor-ref>
+	<interceptor-ref name="LoginInterceptor"></interceptor-ref>
+</action>
+<action name="adjustSeller" class="sellerAction" method="adjustSeller">
+<result name="adjustsellersuccess">/home.jsp</result>
+<result name="adjustsellerfail">/updateseller.jsp</result>
+</action>
+
+<action name="searchGroup" class="groupAction" method="search">        <!-- 查询组团 -->
+<result name="search">/Search.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">search</param></interceptor-ref>
+</action>
+<action name="begin" class="groupAction" method="begin">         <!-- 发起组团 -->
+<result name="begin">/Begin.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">begin</param></interceptor-ref>
+</action>
+<action name="my" class="groupAction" method="mygroup">       <!-- 我的组团 -->
+<result name="leader">/MyGroupLeader.jsp</result>
+<result name="member">/MyGroupMember.jsp</result>
+<result name="null">/searchteam.jsp</result>                         <!-- 当‘我’没有组团时显示错误界面 -->
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">mygroup</param></interceptor-ref>
+</action>
+<action name="begin_group" class="groupAction" method="begin_group">       <!-- 创建团队界面 -->
+<result name="success">/searchteam.jsp</result>
+<result name="fail">/searchteam.jsp</result>                     <!-- 创建团队失败去到失败界面 -->
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">begin_group</param></interceptor-ref>
+</action>
+<action name="deleteGroup" class="groupAction" method="delete">         <!-- 团队发起人解散组团 -->
+<result name="success">/searchteam.jsp</result>
+<result name="fail">/searchteam.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">delete</param></interceptor-ref>
+</action>
+<action name="leaveGroup" class="groupAction" method="leave">         <!-- 团队参加者退出组团 -->
+<result name="success">/searchteam.jsp</result>
+<result name="fail">/searchteam.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">leave</param></interceptor-ref>
+</action>
+<!-- 从这里往下四个action是查询组团的四个类型，他们都会跳转到Search界面在界面下方的表格显示对应类型的组团 -->
+<action name="sport" class="groupAction" method="sport">         <!-- 查询组团选择运动类型-->
+<result name="success">/Search.jsp</result>
+<result name="fail">/Search.jsp</result>
+</action>
+<action name="food" class="groupAction" method="food">         <!-- 查询组团选择饮食类型-->
+<result name="success">/Search.jsp</result>
+<result name="fail">/Search.jsp</result>
+</action>
+<action name="indoor" class="groupAction" method="indoor">         <!-- 查询组团选择室内活动类型-->
+<result name="success">/Search.jsp</result>
+<result name="fail">/Search.jsp</result>
+</action>
+<action name="other" class="groupAction" method="other">         <!-- 查询组团选择其他类型-->
+<result name="success">/Search.jsp</result>
+<result name="fail">/Search.jsp</result>
+</action>
+<action name="thisGroup" class="groupAction" method="thisGroup">         <!--在查询组团界面加入某个团体 -->
+<result name="success">/searchteam.jsp</result>
+<result name="fail">/searchteam.jsp</result>
+<result name="loginfail">/login.jsp</result>
+<interceptor-ref name="defaultStack"></interceptor-ref>
+<interceptor-ref name="LoginInterceptor"><param name="includeMethods">thisGroup</param></interceptor-ref>
+</action>
+<action name="fault" class="groupAction" method="fault">         <!--在查询组团界面加入某个团体 -->
+<result name="success">/searchteam.jsp</result>
+</action>
+</package>
+</struts>

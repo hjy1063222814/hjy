@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>                  <!-- 这个映射文件用来映射ShowGroupBean和software_showteam表 -->
+	<class name="cn.edu.zjut.po.ShowGroup" table="software_showteam" catalog="software_javaee">
+		<id name="stuId" type="string">
+			<column name="software_team_showusernumber" />
+		</id>
+		<property name="teamId" type="string">
+			<column name="software_team_teamnumber"  />
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Like" table="software_like"
+catalog="software_javaee">
+
+ <composite-id name="lpk" class="cn.edu.zjut.po.LikePK"> 
+ <key-property name="stu_usernumber" column="software_stu_usernumber"/> 
+ <key-property name="stuspace_time" column="software_stuspace_time"/> 
+  <key-property name="like_usernumber" column="software_like_usernumber"/> 
+ </composite-id>
+
+</class>
+</hibernate-mapping>

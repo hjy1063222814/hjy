@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Space" table="software_selspace"
+catalog="software_javaee">
+<composite-id name="selpk" class="cn.edu.zjut.po.SelSpacePK"> 
+	 <key-property name="seller_sellernumber" column="software_seller_sellernumber"/> 
+	 <key-property name="selspace_time" column="software_selspace_time"/> 
+	 <key-property name="stu_usernumber" column="software_stu_usernumber"/> 
+</composite-id>
+<property name="selspace_photo" type="string"> 
+<column name="software_selspace_photo" />
+</property>
+<property name="selspace_score" type="float"> 
+<column name="software_selspace_score" />
+</property>
+<property name="selspace_comment" type="string"> 
+<column name="software_selspace_comment" length="50"/>
+</property>
+</class>
+</hibernate-mapping>

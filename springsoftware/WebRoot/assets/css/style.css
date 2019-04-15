@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+ *{
+ 	 margin: 0;
+ 	 padding: 0;
+}
+
+
+body{
+	font-size=16px;
+	
+} 
+#divcss5{
+	margin-top:100px;
+	border:1px solid transparent;
+	width:700px;
+	height:350px
+	}
+#content{
+	float:left;
+	margin-bottom:5px;
+	border:1px solid transparent;
+	width:700px;
+	height:2000px
+	}
+
+#divcss1{
+	margin:0 auto;
+	border:1px solid transparent;
+	width:700px;
+	height:50px
+	}
+#divpyq{
+	float:left;
+	width:250px;
+	height:50px;
+	border:1px solid #F00
+	}
+

@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Export-Package: org.apache.struts2.spring;uses:="org.springframework.c
+ ore,org.springframework.beans.factory.support,org.springframework.uti
+ l,org.springframework.beans,org.springframework.beans.factory,org.apa
+ che.commons.jci.monitor,org.springframework.beans.factory.config,com.
+ opensymphony.xwork2.config,org.apache.commons.lang3,javax.servlet,org
+ .apache.struts2.dispatcher,com.opensymphony.xwork2.util.classloader,c
+ om.opensymphony.xwork2.util.logging,org.springframework.web.context.s
+ upport,com.opensymphony.xwork2.spring,com.opensymphony.xwork2.inject,
+ org.springframework.context,org.springframework.web.context";version=
+ "2.3.35"
+Implementation-Title: Struts 2 Spring Plugin
+Built-By: root
+Tool: Bnd-0.0.357
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache.struts
+Specification-Title: Struts 2 Spring Plugin
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.apache.struts.2-spring-plugin
+Implementation-Version: 2.3.35
+Specification-Vendor: Apache Software Foundation
+Bundle-Name: Struts 2 Spring Plugin
+Created-By: 1.6.0_45 (Sun Microsystems Inc.)
+Implementation-URL: http://struts.apache.org/struts2-plugins/struts2-s
+ pring-plugin/
+Bundle-Vendor: Apache Software Foundation
+Build-Jdk: 1.6.0_45
+Bundle-Version: 2.3.35
+Bnd-LastModified: 1532433047597
+Bundle-ManifestVersion: 2
+Bundle-Description: Apache Struts 2
+Specification-Version: 2.3
+Bundle-DocURL: http://www.apache.org
+Import-Package: com.opensymphony.xwork2.config;version="2.3",com.opens
+ ymphony.xwork2.inject;version="2.3",com.opensymphony.xwork2.spring;ve
+ rsion="2.3",com.opensymphony.xwork2.util.classloader;version="2.3",co
+ m.opensymphony.xwork2.util.logging;version="2.3",javax.servlet,org.ap
+ ache.commons.jci.monitor,org.apache.commons.lang3;version="3.2",org.a
+ pache.struts2.dispatcher;version="2.3",org.apache.struts2.spring;vers
+ ion="2.3",org.springframework.beans;version="3.0",org.springframework
+ .beans.factory;version="3.0",org.springframework.beans.factory.config
+ ;version="3.0",org.springframework.beans.factory.support;version="3.0
+ ",org.springframework.context;version="3.0",org.springframework.core;
+ version="3.0",org.springframework.util;version="3.0",org.springframew
+ ork.web.context;version="3.0",org.springframework.web.context.support
+ ;version="3.0"
+Archiver-Version: Plexus Archiver
+

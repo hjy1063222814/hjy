@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.Seller" table="software_seller"
+catalog="software_javaee">
+
+<id name="seller_sellernumber" type="string">
+<column name="software_seller_sellernumber" />
+</id>
+
+<property name="user_username" type="string">
+<column name="software_user_username" length="12" />
+</property>
+
+<property name="seller_sellername" type="string">
+<column name="software_seller_sellername" length="20" />
+</property>
+
+<property name="seller_photo" type="string">
+<column name="software_seller_photo" length="20" />
+</property>
+
+<property name="seller_place" type="string">
+<column name="software_seller_place" length="20" />
+</property>
+
+<property name="seller_telephone" type="string">
+<column name="software_seller_telephone" length="11" />
+</property>
+
+<property name="seller_average" type="int">
+<column name="software_seller_average"  />
+</property>
+
+<property name="seller_type" type="string">
+<column name="software_seller_type" length="10" />
+</property>
+
+<property name="seller_score" type="float">
+<column name="software_seller_score"  />
+</property>
+
+
+<property name="seller_opentime" type="string">
+<column name="software_seller_opentime"  length="20" />
+</property>
+
+<property name="seller_sellerinfo" type="string">
+<column name="software_seller_sellerinfo" length="2000" />
+</property>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:aop="http://www.springframework.org/schema/aop"
+xmlns:tx="http://www.springframework.org/schema/tx"
+xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+<property name="driverClassName" value="com.mysql.jdbc.Driver"/> 
+<property name="url" value="jdbc:mysql://localhost:3306/software_javaee"/> 
+<property name="username" value="root"/> 
+<property name="password" value="dandan58"/> 
+</bean>
+
+		<bean id="sessionFactory"
+			class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+			<property name="dataSource" ref="dataSource" />
+			<property name="hibernateProperties">
+			<props>
+			<prop key="hibernate.dialect">
+				org.hibernate.dialect.MySQLDialect
+			</prop>
+			<prop key="hibernate.show_sql">true</prop>
+			<prop key="hibernate.format_sql">true</prop>
+			<prop key="hibernate.use_sql_comments">true</prop>
+			</props>
+			</property>
+			<property name="mappingResources">
+			<list>
+				<value>cn/edu/zjut/po/User.hbm.xml</value>
+				<value>cn/edu/zjut/po/Student.hbm.xml</value>
+				<value>cn/edu/zjut/po/Seller.hbm.xml</value>
+				<value>cn/edu/zjut/po/Stuspace.hbm.xml</value>
+				<value>cn/edu/zjut/po/Like.hbm.xml</value>
+				<value>cn/edu/zjut/po/Space.hbm.xml</value>
+				<value>cn/edu/zjut/po/Group.hbm.xml</value>
+				<value>cn/edu/zjut/po/ShowGroup.hbm.xml</value>
+			</list>
+			</property>
+		</bean>
+
+<bean id="baseDAO" class="cn.edu.zjut.dao.BaseHibernateDAO">
+<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
+<bean id="loginDAO" class="cn.edu.zjut.dao.UserDAO"
+parent="baseDAO"/>
+
+<bean id="studentDAO" class="cn.edu.zjut.dao.StudentDAO"
+parent="baseDAO"/>
+
+<bean id="sellerDAO" class="cn.edu.zjut.dao.SellerDAO"
+parent="baseDAO"/>
+
+<bean id="likeDAO" class="cn.edu.zjut.dao.LikeDAO"
+parent="baseDAO"/>
+
+<bean id="stuspaceDAO" class="cn.edu.zjut.dao.StuspaceDAO"
+parent="baseDAO"/>
+
+<bean id="groupDAO" class="cn.edu.zjut.dao.GroupDAO" parent="baseDAO"/>
+
+<bean id="loginService" class="cn.edu.zjut.service.LoginService">
+<property name="loginDAO" ref="loginDAO" />
+</bean>
+
+<bean id="studentService" class="cn.edu.zjut.service.StudentService">
+<property name="studentDAO" ref="studentDAO" />
+</bean>
+
+<bean id="sellerService" class="cn.edu.zjut.service.SellerService">
+<property name="sellerDAO" ref="sellerDAO" />
+</bean>
+
+<bean id="likeService" class="cn.edu.zjut.service.LikeService">
+<property name="likeDAO" ref="likeDAO" />
+</bean>
+
+<bean id="stuspaceService" class="cn.edu.zjut.service.StuspaceService">
+<property name="stuspaceDAO" ref="stuspaceDAO" />
+</bean>
+
+<bean id="searchService" class="cn.edu.zjut.service.SearchService">
+	<property name="sellerDAO" ref="sellerDAO" />
+</bean>
+
+	<bean id="groupService" class="cn.edu.zjut.service.GroupService">
+		<property name="dao" ref="groupDAO" />
+	</bean>
+	
+	<bean id="groupAction" class="cn.edu.zjut.action.GroupAction" scope="prototype">
+		<property name="groupService" ref="groupService" />
+	</bean>
+<bean id="loginAction" class="cn.edu.zjut.action.UserAction"
+scope="prototype">
+<property name="loginService" ref="loginService" />
+</bean>
+
+<bean id="studentAction" class="cn.edu.zjut.action.StudentAction"
+scope="prototype">
+<property name="studentService" ref="studentService" />
+</bean>
+
+<bean id="sellerAction" class="cn.edu.zjut.action.SellerAction"
+scope="prototype">
+<property name="sellerService" ref="sellerService" />
+</bean>
+
+<bean id="addStuspaceAction" class="cn.edu.zjut.action.AddStuspaceAction"
+scope="prototype">
+<property name="stuspaceService" ref="stuspaceService" />
+</bean>
+
+<bean id="findStuspaceAction" class="cn.edu.zjut.action.FindStuspaceAction"
+scope="prototype">
+<property name="stuspaceService" ref="stuspaceService" />
+</bean>
+
+
+<bean id="likeAction" class="cn.edu.zjut.action.LikeAction"
+scope="prototype">
+<property name="likeService" ref="likeService" />
+</bean>
+
+<bean id="searchAction" class="cn.edu.zjut.action.SearchAction" scope="prototype">
+	<property name="searchService" ref="searchService" />
+</bean>
+
+
+</beans>

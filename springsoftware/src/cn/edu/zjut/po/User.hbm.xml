@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD
+3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="cn.edu.zjut.po.User" table="software_user"
+catalog="software_javaee">
+
+<id name="user_username" type="string">
+<column name="software_user_username" />
+</id>
+
+<property name="user_password" type="string">
+<column name="software_user_password" length="12" />
+</property>
+
+<property name="user_type" type="string">
+<column name="software_user_type" length="12" />
+</property>
+</class>
+</hibernate-mapping>

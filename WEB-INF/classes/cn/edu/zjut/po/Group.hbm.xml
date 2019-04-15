@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>                  <!-- 这个映射文件用来映射GroupBean和software_team表 -->
+<class name="cn.edu.zjut.po.GroupBean" table="software_team" catalog="software_javaee">
+<id name="teamId" type="string">
+<column name="software_team_teamnumber" />
+</id>
+<property name="type" type="string">
+<column name="software_team_type" length="50" unique="true" />
+</property>
+<property name="limitNum" type="int">
+<column name="software_team_maxnumber"  />
+</property>
+<property name="numNow" type="int">
+<column name="software_team_currentnumber"  />
+</property>
+<property name="time" type="string">
+<column name="software_team_time" length="50" unique="true" />
+</property>
+<property name="phone" type="string">
+<column name="software_team_telephone" length="50" unique="true" />
+</property>
+<property name="activity" type="string">
+<column name="software_team_txt" length="50" unique="true" />
+</property>
+<property name="organizer" type="string">
+<column name="software_team_organizer" length="50" unique="true" />
+</property>
+
+<property name="budget" type="string">
+<column name="software_team_budget" length="50" unique="true" />
+</property>
+
+
+</class>
+</hibernate-mapping>
